@@ -1,5 +1,5 @@
 # SimpleCalc
-Little calculator app in C
+Little calculator app in C.
 
 Takes a mathematical expression as an argument and evaluates it, printing the result to the console window.
 
