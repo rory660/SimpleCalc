@@ -10,4 +10,4 @@ Can handle addition, subtraction, multiplication and division operators as well 
 ```
 > simplecalc 2+(2*6)/3
 6
-111
+```
