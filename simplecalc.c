@@ -12,8 +12,8 @@ char *slice(char *inputString, int start, int end){
 	return returnString;
 }
 
-int evaluate(char *expression){
-	int result;
+float evaluate(char *expression){
+	float result;
 	int depth = 0;
 	int openBracketIndex = NULL;
 	for(int i = 0; i < strlen(expression); i++){
@@ -27,7 +27,7 @@ int evaluate(char *expression){
 			depth--;
 			if(depth == 0){
 				char bracketsEval[100];
-				sprintf(bracketsEval, "%d", evaluate(slice(expression, openBracketIndex + 1, i - 1)));
+				sprintf(bracketsEval, "%f", evaluate(slice(expression, openBracketIndex + 1, i - 1)));
 				char afterBrackets[100];
 				strcpy(afterBrackets, slice(expression, i + 1, strlen(expression) - 1));
 				strcpy(expression, slice(expression, 0, openBracketIndex - 1));
@@ -57,11 +57,12 @@ int evaluate(char *expression){
 			return evaluate(slice(expression, 0, i - 1)) / evaluate(slice(expression, i + 1, strlen(expression) - 1));
 		}
 	}
-	sscanf(expression, "%d", &result);
+	sscanf(expression, "%f", &result);
 	return result;
 }
 
 int main(int argc, char *argv[]){
-	printf("%d", evaluate(argv[1]));
+	printf("%g", evaluate(argv[1]));
+	return 0;
 }
 
